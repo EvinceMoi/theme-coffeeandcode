@@ -12,14 +12,14 @@ set fish_color_match cyan
 set fish_color_search_match --background=purple
 set fish_color_operator cyan
 set fish_color_escape cyan
-set fish_color_cwd 00875f
+set fish_color_cwd yellow
 set fish_pager_color_prefix cyan
 set fish_pager_color_completion normal
 set fish_pager_color_description 555 yellow
 set fish_pager_color_progress cyan
 set fish_pager_color_secondary
 
-set fish_color_host cyan
+set fish_color_host green
 set fish_color_user cyan
 
 # Git prompt setup
@@ -111,6 +111,7 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_prompt_host (set_color $fish_color_host)
   end
 
-  echo -s "$__fish_prompt_user" "$USER" @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd)
-  echo -s (__fish_git_prompt) "$__fish_prompt_normal" "$delim" ' '
+  echo -s ""
+  echo -s "$__fish_prompt_user" "$USER" (set_color normal) @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) (set_color normal) ' [' (date "+$c2%H$c0:$c2%M$c0:$c2%S") ']'
+  echo -s "$__fish_prompt_normal" "$delim" ' '
 end
