@@ -101,7 +101,10 @@ function fish_prompt --description 'Write out the prompt'
     if not set -q __fish_prompt_status
       set -g __fish_prompt_status (set_color $fish_color_status)
     end
-    set prompt_status "$__fish_prompt_status [$last_status]$__fish_prompt_normal"
+    #set prompt_status "$__fish_prompt_status [$last_status]$__fish_prompt_normal"
+    set prompt_status (set_color normal)"["(set_color red)"$last_status"(set_color normal)"]"
+  else
+    set prompt_status (set_color normal)"["(set_color green)0(set_color normal)"]"
   end
 
   if not set -q __fish_prompt_user
@@ -113,5 +116,5 @@ function fish_prompt --description 'Write out the prompt'
 
   echo -s ""
   echo -s "$__fish_prompt_user" "$USER" (set_color normal) @ "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) (set_color normal) ' [' (date "+$c2%H$c0:$c2%M$c0:$c2%S") ']'
-  echo -s "$__fish_prompt_normal" "$delim" ' '
+  echo -s "$prompt_status " "$__fish_prompt_normal" "$delim" ' '
 end
