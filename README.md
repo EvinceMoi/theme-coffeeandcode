@@ -10,3 +10,8 @@ Another theme choice for Oh-My-Fish! originally created by
 This theme will overwrite all of your Fish color and git settings. If you'd like
 to customize them, you will have to make changes to the `fish_prompt.fish` file
 in this theme. All of the settings are listed at the top of the file.
+
+### customized
+
+* add current time at the end of first line
+* add last status at the beginning of second line
